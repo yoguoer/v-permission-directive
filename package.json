@@ -1,0 +1,13 @@
+{
+  "name": "v-permission",
+  "version": "1.0.0",
+  "description": "vue3权限控制指令v-permission",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vivien",
+  "license": "ISC"
+}
