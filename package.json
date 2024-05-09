@@ -1,6 +1,6 @@
 {
   "name": "v-permission",
-  "version": "1.0.0",
+  "version": "1.0.14",
   "description": "vue3权限控制指令v-permission",
   "main": "index.js",
   "scripts": {

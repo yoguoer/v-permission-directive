@@ -1,4 +1,4 @@
-import permission from './permission';
+import createPermissionDirective from './permission';
 import { initHasPermission } from './permission'
 
 // Vue 3 插件定义   
@@ -9,21 +9,24 @@ const install = function (app, options = {
   permissionList: null,
   permissions: null
 }) {
+
+  // 初始化权限检查函数 
+  const hasPermissions = initHasPermission(options);
   // 添加全局方法 $hasPermissions  
-  app.config.globalProperties.$hasPermissions = initHasPermission(options);
+  app.config.globalProperties.$hasPermissions = hasPermissions;
+
+
+  // 提供全局的权限检查对象 
+  app.provide('hasPermissions', app.config.globalProperties.$hasPermissions); 
+
+  // 使用 hasPermissions 函数创建指令对象  
+  const permissionDirective = createPermissionDirective(hasPermissions);
   // 注册全局指令 v-permission  
-  app.directive('permission', permission);
+  app.directive('permission', permissionDirective);
+
 }
 
-permission.install = install
-
-export default permission
-
-// 用法：
-// 检查权限并调用回调函数（如果提供了）  
-// hasPermissions({ module: 'someModule', auth: 'someAuth' }, () => {  
-//   console.log('用户拥有权限');  
-// });  
-// 只检查权限，不调用回调函数  
-// const hasPermi = hasPermissions({ module: 'someModule', auth: 'someAuth' });  
-// console.log(hasPermi); // 输出 true 或 false
+// 导出插件对象  
+export default {
+  install
+};
