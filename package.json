@@ -1,8 +1,8 @@
 {
   "name": "v-permission",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "vue3权限控制指令v-permission",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
