@@ -1,5 +1,5 @@
 {
-  "name": "v-permission",
+  "name": "v-permission-directive",
   "version": "1.0.15",
   "description": "vue3权限控制指令v-permission",
   "main": "index.ts",
